@@ -1,0 +1,4 @@
+node_modules/
+
+# Optional: build folder for React frontend
+.env

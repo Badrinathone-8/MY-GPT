@@ -1,9 +1,9 @@
 .chatContainer {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
+  
   align-items: center;
-  height: calc(100vh - 60px); /* full height minus nav */
+  height: calc(100vh - 60px);
   width: 100%;
   background-color:rgb(36, 36, 36);
 }
@@ -37,8 +37,7 @@
 .user {
     
   max-width: 65%;
-  background-color: #343541; /* user message bubble */
-  color: #d1d5db;
+  background-color: #343541; 
   padding: 8px ;
   border-radius: 20px;
   font-size: 14px;
@@ -55,7 +54,7 @@
 
 .gpt {
   max-width: 80%;
-  /* background-color: #2a2828; GPT bubble */
+  
   color: #d1d5db;
   padding: 20px;
   border-radius: 20px;
@@ -68,8 +67,7 @@
 }
 
 .inputDiv {
-  /* padding:12px; */
-  /* background-color: #343541; */
+
   display: flex;
   flex-direction: column;
   gap: 5px;

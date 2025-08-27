@@ -40,11 +40,11 @@ export default function Chat() {
         threadId
       });
 
-      // Start GPT message as empty
+      
       const botMessage = { role: "assistant", content: "" };
       setChats(prev => [...prev, botMessage]);
 
-      // Typing effect: word by word
+      //typing words egfect
       const words = response.data.reply.split(" ");
       let i = 0;
 
@@ -63,7 +63,7 @@ export default function Chat() {
           clearInterval(interval);
           setLoading(false);
         }
-      }, 30); // speed in ms per word (adjust if needed)
+      }, 30); 
     } catch (err) {
       console.error(err);
       setLoading(false);

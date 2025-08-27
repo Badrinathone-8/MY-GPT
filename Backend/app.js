@@ -23,8 +23,8 @@ const server=async ()=>{
 server();
 app.use(router);
 
-
-app.listen(8000,()=>{
+const PORT = process.env.PORT || 8000;
+app.listen(PORT,()=>{
     console.log(`http://localhost:8000`);
 })
 
