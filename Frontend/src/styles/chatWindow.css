@@ -1,0 +1,37 @@
+.chatWindow {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* take remaining width next to sidebar */
+  background-color: #202123; 
+}
+
+nav {
+  height: 50px;
+  width: 95%;
+  /* background-color: #202123; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 px;
+  border-bottom: 1px solid #444;
+}
+
+nav .gpt span {
+  font-weight: 500;
+  font-size: 16px;
+  background-color:  #202123;
+}
+
+nav .img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #10a37f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+}
+nav .gpt{
+    background-color: #202123;
+}
