@@ -3,16 +3,19 @@ import "./styles/sideBar.css"
 import { ChatContext } from './useContext'
 import axios from 'axios';
 import { v1 as uuidv1 } from "uuid";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export default function SideBar() {
   const { setInput, setChats, setThreadId } = useContext(ChatContext);
   const [threads, setThreads] = useState([]);
 
-  // 🔹 Fetch existing threads on mount
+  
   useEffect(() => {
     const getResponse = async () => {
       try {
-        const response = await axios("http://localhost:8000/thread/getall");
+        const response = await axios(`${import.meta.env.VITE_API_URL}/thread/getall`);
         const threadsArray = response.data.allThreads;
 
         const filteredData = threadsArray.map(thread => {
@@ -31,7 +34,7 @@ export default function SideBar() {
     getResponse();
   }, []);
 
-  // 🔹 New Chat
+
   const newChat = () => {
     setInput("");
     const newId = uuidv1();
@@ -39,10 +42,10 @@ export default function SideBar() {
     setChats([]);
   };
 
-  // 🔹 Load a specific thread
+  
   const getInfo = async (threadId) => {
     try {
-      const response = await axios.get(`http://localhost:8000/thread/getbyid/${threadId}`);
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/thread/getbyid/${threadId}`);
       const thread = response.data;
       console.log("Loaded thread:", thread);
 
@@ -54,11 +57,11 @@ export default function SideBar() {
     }
   };
 
-  // 🔹 Delete a thread
+
   const deleteThread = async (threadId) => {
     try {
-      await axios.delete(`http://localhost:8000/thread/deletebyid/${threadId}`);
-      // ✅ remove from UI without refresh
+      await axios.delete(`${import.meta.env.VITE_API_URL}/thread/deletebyid/${threadId}`);
+     
       setThreads(prev => prev.filter(t => t.threadId !== threadId));
      
     } catch (err) {

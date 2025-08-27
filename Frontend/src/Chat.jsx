@@ -7,6 +7,9 @@ import ReactMarkdown from "react-markdown"
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/github-dark.css"
 import {ChatContext} from "./useContext"
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export default function Chat() {
   // const [input, setInput] = useState("");
@@ -35,7 +38,7 @@ export default function Chat() {
     setInput("");
 
     try {
-      const response = await axios.post("http://localhost:8000/api/chat", {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/chat`, {
         message: currentInput,
         threadId
       });

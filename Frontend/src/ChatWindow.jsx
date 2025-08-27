@@ -3,6 +3,9 @@ import "./styles/chatWindow.css"
 import { useState } from 'react';
 import Chat from "./Chat.jsx"
 
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export default function ChatWindow() {
    
