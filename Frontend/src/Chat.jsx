@@ -7,9 +7,9 @@ import ReactMarkdown from "react-markdown"
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/github-dark.css"
 import {ChatContext} from "./useContext"
-import dotenv from "dotenv";
+
 import server from './environment.js';
-dotenv.config();
+
 
 export default function Chat() {
   // nput, setInput] = useState("");
