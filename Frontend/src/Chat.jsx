@@ -42,6 +42,7 @@ export default function Chat() {
         message: currentInput,
         threadId
       });
+      console.log(response.message)
 
       
       const botMessage = { role: "assistant", content: "" };
