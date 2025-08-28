@@ -3,10 +3,10 @@ import "./styles/sideBar.css"
 import { ChatContext } from './useContext'
 import axios from 'axios';
 import { v1 as uuidv1 } from "uuid";
-import dotenv from "dotenv";
+
 import server from './environment.js';
 
-dotenv.config();
+
 
 export default function SideBar() {
   const { setInput, setChats, setThreadId } = useContext(ChatContext);
@@ -61,7 +61,7 @@ export default function SideBar() {
 
   const deleteThread = async (threadId) => {
     try {
-      await axios.delete(`${import.meta.env.VITE_API_URL}/thread/deletebyid/${threadId}`);
+      await axios.delete(`${server}/thread/deletebyid/${threadId}`);
      
       setThreads(prev => prev.filter(t => t.threadId !== threadId));
      
