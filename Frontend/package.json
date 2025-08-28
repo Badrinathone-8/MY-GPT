@@ -8,6 +8,7 @@
   "build": "npx vite build",
   "preview": "npx vite preview"
 },
+
   "dependencies": {
     "vite": "^7.1.2",
   "@vitejs/plugin-react": "^5.0.0",
