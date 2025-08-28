@@ -8,11 +8,11 @@ import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/github-dark.css"
 import {ChatContext} from "./useContext"
 import dotenv from "dotenv";
-
+import server from './environment.js';
 dotenv.config();
 
 export default function Chat() {
-  // const [input, setInput] = useState("");
+  // nput, setInput] = useState("");
   const {input,setInput,threadId,setThreadId}=useContext(ChatContext)
 
   const [loading, setLoading] = useState(false);
@@ -30,7 +30,7 @@ export default function Chat() {
     if (!input.trim()) return;
     setLoading(true);
 
-    // Add user message
+  
     const userMessage = { role: "user", content: input };
     setChats(prev => [...prev, userMessage]);
 
@@ -38,7 +38,7 @@ export default function Chat() {
     setInput("");
 
     try {
-      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/chat`, {
+      const response = await axios.post(`${server}/api/chat`, {
         message: currentInput,
         threadId
       });

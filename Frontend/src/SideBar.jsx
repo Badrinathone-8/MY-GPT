@@ -4,6 +4,7 @@ import { ChatContext } from './useContext'
 import axios from 'axios';
 import { v1 as uuidv1 } from "uuid";
 import dotenv from "dotenv";
+import server from './environment.js';
 
 dotenv.config();
 
@@ -15,7 +16,7 @@ export default function SideBar() {
   useEffect(() => {
     const getResponse = async () => {
       try {
-        const response = await axios(`${import.meta.env.VITE_API_URL}/thread/getall`);
+        const response = await axios(`${server}/thread/getall`);
         const threadsArray = response.data.allThreads;
 
         const filteredData = threadsArray.map(thread => {
@@ -45,7 +46,7 @@ export default function SideBar() {
   
   const getInfo = async (threadId) => {
     try {
-      const response = await axios.get(`${import.meta.env.VITE_API_URL}/thread/getbyid/${threadId}`);
+      const response = await axios.get(`${server}/thread/getbyid/${threadId}`);
       const thread = response.data;
       console.log("Loaded thread:", thread);
 
