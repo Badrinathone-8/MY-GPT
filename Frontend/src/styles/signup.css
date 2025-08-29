@@ -1,0 +1,70 @@
+.contain{
+  width:100vw;
+  height:100vh;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.signupDiv{
+  height:450px;
+  width:350px;
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+    flex-direction:column;
+background-color: rgb(26, 25, 25);
+  /* justify-content: space-between; */
+outline-color: rgb(0, 128, 66);}
+input{
+ height:2.2rem;
+ border-radius: 10px;
+ border: none;
+ color:rgb(255, 255, 255);
+ background-color: black;
+   margin-top:5px;
+   margin-bottom: 0%;
+
+}
+input:placeholder-shown
+input:focus{
+  outline:0cap;
+  outline-color: rgb(0, 128, 66);
+
+}
+.btnDiv{
+    display: flex;
+    width:100%;
+    /* background-color: black; */
+
+  justify-content: center;
+}
+.btnn{
+  width:320px;
+  color:rgb(0, 0, 0);
+  /* text-align: center; */
+  display: flex;
+  color:rgb(0, 0, 0);
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+   background-color:  rgb(0, 128, 66);
+
+}
+.btnn:hover{
+  background-color: rgb(0, 0, 0);
+  color: rgb(4, 129, 88);
+  transition: 200ms;
+}
+.end{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  /* background-color: blue; */
+  margin-bottom:0px ;
+}
+h4{
+  margin-top: 10px;
+}

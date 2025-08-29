@@ -8,6 +8,7 @@ import Thread from "../models/threadSchema.js";
 dotenv.config();
 
 export const chatMessage=async(req,res)=>{
+  
     const {threadId,message}=req.body;
     try{
       let thread=await Thread.findOne({threadId});

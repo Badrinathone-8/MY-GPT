@@ -4,21 +4,23 @@ import ChatWindow from './ChatWindow'
 import "./App.css"
 import SideBar from './SideBar'
 import {ContextProvide} from "./useContext.jsx"
+// import  SignIn from "./authForm/Signup.jsx"
 
 function App() {
 
 
   return (
     <>
-    <ContextProvide >
+  
     <div className='app'>
+     
       <SideBar/>
      
      <ChatWindow />
           
 
     </div>
-     </ContextProvide >
+   
     </>
   )
 }
