@@ -20,7 +20,7 @@ export default function Login() {
 async function login(){
     // const {username,password}=req.body;
    try{
-     const response=await axios.post(`{server}/api/login`,{
+     const response=await axios.post(`${server}/api/login`,{
         username,
         password,
     })
