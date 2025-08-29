@@ -1,30 +1,28 @@
-import React, { useContext, useEffect, useState } from 'react'
-import "./styles/sideBar.css"
-import { ChatContext } from './useContext'
+import React, { useContext, useEffect } from 'react';
+import "./styles/sideBar.css";
+import { ChatContext } from './useContext';
 import axios from 'axios';
 import { v1 as uuidv1 } from "uuid";
 
 import server from './environment.js';
-
-
-
+import blackLogo from './assets/blacklogo.png'; 
 export default function SideBar() {
-  const { setInput, setChats, setThreadId,threads, setThreads } = useContext(ChatContext);
-  
+  const { setInput, setChats, setThreadId, threads, setThreads } = useContext(ChatContext);
 
-  
   useEffect(() => {
     const getResponse = async () => {
       try {
-        const response = await axios(`${server}/thread/getall`);
+        const response = await axios.get(`${server}/thread/getall`);
         const threadsArray = response.data.allThreads;
 
-        const filteredData = threadsArray.map(thread => {
-          const userMessages = thread.messages.filter(m => m.role === "user");
-          return userMessages.length > 0
-            ? { threadId: thread.threadId, question: userMessages[0].content }
-            : null;
-        }).filter(Boolean);
+        const filteredData = threadsArray
+          .map(thread => {
+            const userMessages = thread.messages.filter(m => m.role === "user");
+            return userMessages.length > 0
+              ? { threadId: thread.threadId, question: userMessages[0].content }
+              : null;
+          })
+          .filter(Boolean);
 
         setThreads(filteredData);
       } catch (err) {
@@ -35,7 +33,6 @@ export default function SideBar() {
     getResponse();
   }, []);
 
-
   const newChat = () => {
     setInput("");
     const newId = uuidv1();
@@ -43,7 +40,6 @@ export default function SideBar() {
     setChats([]);
   };
 
-  
   const getInfo = async (threadId) => {
     try {
       const response = await axios.get(`${server}/thread/getbyid/${threadId}`);
@@ -58,23 +54,19 @@ export default function SideBar() {
     }
   };
 
-
   const deleteThread = async (threadId) => {
     try {
       await axios.delete(`${server}/thread/deletebyid/${threadId}`);
-     
       setThreads(prev => prev.filter(t => t.threadId !== threadId));
-     
     } catch (err) {
-      console.log(err);
-    
+      console.error(err);
     }
   };
 
   return (
     <div className='sideBar'>
       <button className='button' onClick={newChat}>
-        <img src="src/assets/blacklogo.png" alt='logo' className='logo' />
+        <img src={blackLogo} alt='logo' className='logo' /> {/* ✅ use imported image */}
         <i className="fa-solid fa-pen-to-square"></i>
       </button>
       
@@ -85,7 +77,6 @@ export default function SideBar() {
             <i 
               className="fa-solid fa-trash"
               onClick={(e) => { e.stopPropagation(); deleteThread(t.threadId); }}
-             // style={{ marginLeft: "10px", cursor: "pointer", color: "red" }}
             ></i>
           </li>
         ))}
@@ -95,5 +86,5 @@ export default function SideBar() {
         <p>from Badri &hearts;</p>
       </div>
     </div>
-  )
+  );
 }
