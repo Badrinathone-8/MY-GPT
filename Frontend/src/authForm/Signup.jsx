@@ -6,6 +6,8 @@ import {useNavigate} from "react-router-dom"
 import { useContext } from 'react';
 import {ChatContext} from "../useContext"
 import {Link } from "react-router-dom"
+import server from '../environment.js'
+
 
 
 export default function Signup() {
@@ -17,7 +19,7 @@ const [username,setUserName]=useState('');
   const navigator=useNavigate();
 
 async function signup(){
-  const response=await axios.post("http://localhost:8000/api/signup",{
+  const response=await axios.post(`${server}/api/signup`,{
         username,
         email,
         password,

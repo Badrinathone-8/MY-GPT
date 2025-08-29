@@ -9,6 +9,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "../styles/signup.css"
 import "react-toastify/dist/ReactToastify.css";
 import {Link} from "react-router-dom"
+import server from '../environment.js'
 
 export default function Login() {
     const {currentUser,setCurrentUser}=useContext(ChatContext);
@@ -19,7 +20,7 @@ export default function Login() {
 async function login(){
     // const {username,password}=req.body;
    try{
-     const response=await axios.post("http://localhost:8000/api/login",{
+     const response=await axios.post(`{server}/api/login`,{
         username,
         password,
     })
