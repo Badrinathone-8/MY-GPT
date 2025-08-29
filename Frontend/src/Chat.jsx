@@ -38,7 +38,7 @@ export default function Chat() {
     setInput("");
 
     try {
-      const response = await axios.post(`http://localhost:8000/api/chat`, {
+      const response = await axios.post(`${server}/api/chat`, {
         message: currentInput,
         threadId
       });

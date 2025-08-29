@@ -59,7 +59,7 @@ function logout(){
       {open? <div className='dropdown'>
         <p><i className="fa-solid fa-cloud-arrow-up"></i> Upgrade plan</p>
         <p><i className="fa-solid fa-gear"></i> setting</p>
-        <p onClick={!Logout?logout:null} disable={Logout}  ><i className="fa-solid fa-arrow-right-from-bracket"></i> logout</p>
+        <p onClick={!Logout?logout:null}   ><i className="fa-solid fa-arrow-right-from-bracket"></i> logout</p>
        </div>:""}
          <Chat />
                          <ToastContainer /> 

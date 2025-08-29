@@ -9,14 +9,14 @@ import server from './environment.js';
 
 
 export default function SideBar() {
-  const { setInput, setChats, setThreadId } = useContext(ChatContext);
-  const [threads, setThreads] = useState([]);
+  const { setInput, setChats, setThreadId,threads, setThreads } = useContext(ChatContext);
+  
 
   
   useEffect(() => {
     const getResponse = async () => {
       try {
-        const response = await axios("http://localhost:8000/thread/getall");
+        const response = await axios(`${server}/thread/getall`);
         const threadsArray = response.data.allThreads;
 
         const filteredData = threadsArray.map(thread => {
@@ -46,7 +46,7 @@ export default function SideBar() {
   
   const getInfo = async (threadId) => {
     try {
-      const response = await axios.get(`http://localhost:8000/thread/getbyid/${threadId}`);
+      const response = await axios.get(`${server}/thread/getbyid/${threadId}`);
       const thread = response.data;
       console.log("Loaded thread:", thread);
 
@@ -61,7 +61,7 @@ export default function SideBar() {
 
   const deleteThread = async (threadId) => {
     try {
-      await axios.delete(`http://localhost:8000/thread/deletebyid/${threadId}`);
+      await axios.delete(`${server}/thread/deletebyid/${threadId}`);
      
       setThreads(prev => prev.filter(t => t.threadId !== threadId));
      
