@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect, useContext } from 'react'
 import "./styles/chat.css"
 import { ScaleLoader } from "react-spinners";
 import { v4 as uuidv4 } from "uuid";
+import {ScaleLoader} from "react-spinners"
 import axios from "axios";
 import ReactMarkdown from "react-markdown"
 import rehypeHighlight from "rehype-highlight";
