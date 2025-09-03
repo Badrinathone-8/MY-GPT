@@ -21,7 +21,7 @@ A full-stack AI-powered chat application built using **React** and **Node.js/Exp
 
 ---
 
-![Chat Interface](link-to-screenshot-or-gif)
+![Chat Interface](Frontend/src/assets/signup.png)
 
 ---
 
