@@ -25,8 +25,8 @@ A full-stack AI-powered chat application built using **React** and **Node.js/Exp
 ![Login Paag](Frontend/src/assets/login.png)
 
 ![Home Page](Frontend/src/assets/homepage.png)
-![Delete History](Frontend/src/assets/deleteHistory.png)
-![Token-genaration](Frontend/src/assets/token.png)
+![Delete History](Frontend/src/assets/deletehistory.png)
+![Token-genaration](Frontend/src/assets/tokengenaration.png)
 
 
 ---
