@@ -3,7 +3,7 @@
 A full-stack AI-powered chat application built using **React** and **Node.js/Express**, integrated with **OpenAI API**. The app allows users to interact with a chatbot similar to ChatGPT in real-time.
 
 ---
-## 🔗 [Live Demo](https://my-gpt-fro.onrender.com/)
+## 🔗 [App live Link](https://my-gpt-fro.onrender.com/)
 
 ## **Features**
 - AI-powered chatbot using OpenAI API
